@@ -58,6 +58,7 @@
             $(document).ready(function () {
                 $("#account-nav-link").addClass("active");
                 $("#mobile-help-text").text("Account");
+                $("#UserName").focus();
             });
         </script>
     </body>

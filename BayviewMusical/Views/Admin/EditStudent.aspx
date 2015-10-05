@@ -118,13 +118,13 @@
             $(document).ready(function () {
                 $("#student-nav-link").addClass("active");
                 $("#mobile-help-text").text("Edit Student");
-        
-            $("#DateID").change(function (ev) {
-                dateID = $("#DateID").val();
+                $("#Code").focus();
+                $("#DateID").change(function (ev) {
+                    dateID = $("#DateID").val();
 
-                data = { dateID: dateID }
+                    data = { dateID: dateID }
 
-                $.ajax(
+                    $.ajax(
                         { type: "GET",
                             url: "/Admin/GetTimeSlots",
                             data: data,
@@ -139,19 +139,19 @@
                                 alert("The call to the server side failed. " + x.responseText);
                             }
                         });
-            });
-            $("#clear-button").click(function (ev) {
-                $("#inputFirstName").val('');
-                $("#inputLastName").val('');
-                $("#inputCode").val('');
-                $("#select-gender").val('A');
-                $("#select-grade").val('A');
-                $("#select-role").val('0');
-                $("#select-time").val('0');
-                $("#select-date")
+                });
+                $("#clear-button").click(function (ev) {
+                    $("#inputFirstName").val('');
+                    $("#inputLastName").val('');
+                    $("#inputCode").val('');
+                    $("#select-gender").val('A');
+                    $("#select-grade").val('A');
+                    $("#select-role").val('0');
+                    $("#select-time").val('0');
+                    $("#select-date")
                     .val('0')
                     .trigger('change');
-            });
+                });
             });
         </script>
     </body>

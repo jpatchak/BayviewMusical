@@ -69,6 +69,7 @@
             $(document).ready(function () {
                 $("#home-nav-link").addClass("active");
                 $("#mobile-help-text").text("Musical Details");
+                $("#MusicalName").focus();
             });
         </script>
     </body>

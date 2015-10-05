@@ -59,6 +59,7 @@
             $(document).ready(function () {
                 $("#role-nav-link").addClass("active");
                 $("#mobile-help-text").text("Roles");
+                $("#RoleName").focus();
             });
         </script>
     </body>

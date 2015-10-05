@@ -64,6 +64,7 @@
             $(document).ready(function () {
                 $("#date-nav-link").addClass("active");
                 $("#mobile-help-text").text("Audition Dates");
+                $("#TimeDescription").focus();
             });
         </script>
     </body>

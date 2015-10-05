@@ -97,6 +97,7 @@
             $(document).ready(function () {
                 $("input[name='Gender']:radio").change(function () { GetRolesList(); });
                 $("input[name='Grade']:radio").change(function () { GetRolesList(); });
+                $("#FirstName").focus();
             });
 
             function GetRolesList() {
