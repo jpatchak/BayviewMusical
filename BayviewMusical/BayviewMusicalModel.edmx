@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BAYVIEW_STUDENTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BAYVIEW_STUDENTModelStoreContainer">
+          <EntitySet Name="Account" EntityType="BAYVIEW_STUDENTModel.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AuditionDate" EntityType="BAYVIEW_STUDENTModel.Store.AuditionDate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AuditionTime" EntityType="BAYVIEW_STUDENTModel.Store.AuditionTime" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Musical" EntityType="BAYVIEW_STUDENTModel.Store.Musical" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MusicalRole" EntityType="BAYVIEW_STUDENTModel.Store.MusicalRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Student" EntityType="BAYVIEW_STUDENTModel.Store.Student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentCode" EntityType="BAYVIEW_STUDENTModel.Store.StudentCode" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentRole" EntityType="BAYVIEW_STUDENTModel.Store.StudentRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentTime" EntityType="BAYVIEW_STUDENTModel.Store.StudentTime" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AuditionDate_Musical" Association="BAYVIEW_STUDENTModel.Store.FK_AuditionDate_Musical">
+            <End Role="Musical" EntitySet="Musical" />
+            <End Role="AuditionDate" EntitySet="AuditionDate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditionTime_AuditionDate" Association="BAYVIEW_STUDENTModel.Store.FK_AuditionTime_AuditionDate">
+            <End Role="AuditionDate" EntitySet="AuditionDate" />
+            <End Role="AuditionTime" EntitySet="AuditionTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MusicalRole_Musical" Association="BAYVIEW_STUDENTModel.Store.FK_MusicalRole_Musical">
+            <End Role="Musical" EntitySet="Musical" />
+            <End Role="MusicalRole" EntitySet="MusicalRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Musical" Association="BAYVIEW_STUDENTModel.Store.FK_Student_Musical">
+            <End Role="Musical" EntitySet="Musical" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_StudentCode" Association="BAYVIEW_STUDENTModel.Store.FK_Student_StudentCode">
+            <End Role="StudentCode" EntitySet="StudentCode" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRole_MusicalRole" Association="BAYVIEW_STUDENTModel.Store.FK_StudentRole_MusicalRole">
+            <End Role="MusicalRole" EntitySet="MusicalRole" />
+            <End Role="StudentRole" EntitySet="StudentRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRole_Student" Association="BAYVIEW_STUDENTModel.Store.FK_StudentRole_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentRole" EntitySet="StudentRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTime_AuditionTime" Association="BAYVIEW_STUDENTModel.Store.FK_StudentTime_AuditionTime">
+            <End Role="AuditionTime" EntitySet="AuditionTime" />
+            <End Role="StudentTime" EntitySet="StudentTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTime_Student" Association="BAYVIEW_STUDENTModel.Store.FK_StudentTime_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentTime" EntitySet="StudentTime" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AuditionDate">
+          <Key>
+            <PropertyRef Name="dateID" />
+          </Key>
+          <Property Name="dateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="musicalID" Type="int" Nullable="false" />
+          <Property Name="date" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="AuditionTime">
+          <Key>
+            <PropertyRef Name="timeID" />
+          </Key>
+          <Property Name="timeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="dateID" Type="int" Nullable="false" />
+          <Property Name="timeDescription" Type="varchar" MaxLength="50" />
+          <Property Name="availableSlots" Type="int" />
+          <Property Name="signupStartDate" Type="smalldatetime" />
+          <Property Name="signupEndDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Musical">
+          <Key>
+            <PropertyRef Name="musicalID" />
+          </Key>
+          <Property Name="musicalID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="150" />
+          <Property Name="signupStartDate" Type="smalldatetime" />
+          <Property Name="signupEndDate" Type="smalldatetime" />
+          <Property Name="expiredMessage" Type="varchar(max)" />
+          <Property Name="confirmationMessage" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="MusicalRole">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="musicalID" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="1" />
+          <Property Name="grade" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="studentID" />
+          </Key>
+          <Property Name="studentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="musicalID" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="150" />
+          <Property Name="gender" Type="varchar" MaxLength="1" />
+          <Property Name="grade" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="StudentCode">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="StudentRole">
+          <Key>
+            <PropertyRef Name="studentRoleID" />
+          </Key>
+          <Property Name="studentRoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="roleID" Type="int" Nullable="false" />
+          <Property Name="studentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentTime">
+          <Key>
+            <PropertyRef Name="studentTimeID" />
+          </Key>
+          <Property Name="studentTimeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="studentID" Type="int" Nullable="false" />
+          <Property Name="timeID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AuditionDate_Musical">
+          <End Role="Musical" Type="BAYVIEW_STUDENTModel.Store.Musical" Multiplicity="1" />
+          <End Role="AuditionDate" Type="BAYVIEW_STUDENTModel.Store.AuditionDate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="AuditionDate">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditionTime_AuditionDate">
+          <End Role="AuditionDate" Type="BAYVIEW_STUDENTModel.Store.AuditionDate" Multiplicity="1" />
+          <End Role="AuditionTime" Type="BAYVIEW_STUDENTModel.Store.AuditionTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuditionDate">
+              <PropertyRef Name="dateID" />
+            </Principal>
+            <Dependent Role="AuditionTime">
+              <PropertyRef Name="dateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MusicalRole_Musical">
+          <End Role="Musical" Type="BAYVIEW_STUDENTModel.Store.Musical" Multiplicity="1" />
+          <End Role="MusicalRole" Type="BAYVIEW_STUDENTModel.Store.MusicalRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="MusicalRole">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Musical">
+          <End Role="Musical" Type="BAYVIEW_STUDENTModel.Store.Musical" Multiplicity="1" />
+          <End Role="Student" Type="BAYVIEW_STUDENTModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_StudentCode">
+          <End Role="StudentCode" Type="BAYVIEW_STUDENTModel.Store.StudentCode" Multiplicity="1" />
+          <End Role="Student" Type="BAYVIEW_STUDENTModel.Store.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentCode">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRole_MusicalRole">
+          <End Role="MusicalRole" Type="BAYVIEW_STUDENTModel.Store.MusicalRole" Multiplicity="1" />
+          <End Role="StudentRole" Type="BAYVIEW_STUDENTModel.Store.StudentRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicalRole">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="StudentRole">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRole_Student">
+          <End Role="Student" Type="BAYVIEW_STUDENTModel.Store.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentRole" Type="BAYVIEW_STUDENTModel.Store.StudentRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="studentID" />
+            </Principal>
+            <Dependent Role="StudentRole">
+              <PropertyRef Name="studentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTime_AuditionTime">
+          <End Role="AuditionTime" Type="BAYVIEW_STUDENTModel.Store.AuditionTime" Multiplicity="1" />
+          <End Role="StudentTime" Type="BAYVIEW_STUDENTModel.Store.StudentTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuditionTime">
+              <PropertyRef Name="timeID" />
+            </Principal>
+            <Dependent Role="StudentTime">
+              <PropertyRef Name="timeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTime_Student">
+          <End Role="Student" Type="BAYVIEW_STUDENTModel.Store.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentTime" Type="BAYVIEW_STUDENTModel.Store.StudentTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="studentID" />
+            </Principal>
+            <Dependent Role="StudentTime">
+              <PropertyRef Name="studentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BayviewMusical" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BayviewMusicalContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuditionDates" EntityType="BayviewMusical.AuditionDate" />
+          <EntitySet Name="AuditionTimes" EntityType="BayviewMusical.AuditionTime" />
+          <EntitySet Name="Musicals" EntityType="BayviewMusical.Musical" />
+          <EntitySet Name="MusicalRoles" EntityType="BayviewMusical.MusicalRole" />
+          <EntitySet Name="Students" EntityType="BayviewMusical.Student" />
+          <EntitySet Name="StudentCodes" EntityType="BayviewMusical.StudentCode" />
+          <EntitySet Name="StudentRoles" EntityType="BayviewMusical.StudentRole" />
+          <EntitySet Name="StudentTimes" EntityType="BayviewMusical.StudentTime" />
+          <AssociationSet Name="FK_AuditionDate_Musical" Association="BayviewMusical.FK_AuditionDate_Musical">
+            <End Role="Musical" EntitySet="Musicals" />
+            <End Role="AuditionDate" EntitySet="AuditionDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditionTime_AuditionDate" Association="BayviewMusical.FK_AuditionTime_AuditionDate">
+            <End Role="AuditionDate" EntitySet="AuditionDates" />
+            <End Role="AuditionTime" EntitySet="AuditionTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTime_AuditionTime" Association="BayviewMusical.FK_StudentTime_AuditionTime">
+            <End Role="AuditionTime" EntitySet="AuditionTimes" />
+            <End Role="StudentTime" EntitySet="StudentTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MusicalRole_Musical" Association="BayviewMusical.FK_MusicalRole_Musical">
+            <End Role="Musical" EntitySet="Musicals" />
+            <End Role="MusicalRole" EntitySet="MusicalRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Musical" Association="BayviewMusical.FK_Student_Musical">
+            <End Role="Musical" EntitySet="Musicals" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRole_MusicalRole" Association="BayviewMusical.FK_StudentRole_MusicalRole">
+            <End Role="MusicalRole" EntitySet="MusicalRoles" />
+            <End Role="StudentRole" EntitySet="StudentRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_StudentCode" Association="BayviewMusical.FK_Student_StudentCode">
+            <End Role="StudentCode" EntitySet="StudentCodes" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRole_Student" Association="BayviewMusical.FK_StudentRole_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentRole" EntitySet="StudentRoles" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="BayviewMusical.Account" />
+          <AssociationSet Name="FK_StudentTime_Student" Association="BayviewMusical.FK_StudentTime_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentTime" EntitySet="StudentTimes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AuditionDate">
+          <Key>
+            <PropertyRef Name="dateID" />
+          </Key>
+          <Property Name="dateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="musicalID" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" />
+          <NavigationProperty Name="Musical" Relationship="BayviewMusical.FK_AuditionDate_Musical" FromRole="AuditionDate" ToRole="Musical" />
+          <NavigationProperty Name="AuditionTimes" Relationship="BayviewMusical.FK_AuditionTime_AuditionDate" FromRole="AuditionDate" ToRole="AuditionTime" />
+        </EntityType>
+        <EntityType Name="AuditionTime">
+          <Key>
+            <PropertyRef Name="timeID" />
+          </Key>
+          <Property Name="timeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateID" Type="Int32" Nullable="false" />
+          <Property Name="timeDescription" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="availableSlots" Type="Int32" />
+          <NavigationProperty Name="AuditionDate" Relationship="BayviewMusical.FK_AuditionTime_AuditionDate" FromRole="AuditionTime" ToRole="AuditionDate" />
+          <NavigationProperty Name="StudentTimes" Relationship="BayviewMusical.FK_StudentTime_AuditionTime" FromRole="AuditionTime" ToRole="StudentTime" />
+          <Property Type="DateTime" Name="signupStartDate" />
+          <Property Type="DateTime" Name="signupEndDate" />
+        </EntityType>
+        <EntityType Name="Musical">
+          <Key>
+            <PropertyRef Name="musicalID" />
+          </Key>
+          <Property Name="musicalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="signupStartDate" Type="DateTime" />
+          <Property Name="signupEndDate" Type="DateTime" />
+          <Property Name="expiredMessage" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="confirmationMessage" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AuditionDates" Relationship="BayviewMusical.FK_AuditionDate_Musical" FromRole="Musical" ToRole="AuditionDate" />
+          <NavigationProperty Name="MusicalRoles" Relationship="BayviewMusical.FK_MusicalRole_Musical" FromRole="Musical" ToRole="MusicalRole" />
+          <NavigationProperty Name="Students" Relationship="BayviewMusical.FK_Student_Musical" FromRole="Musical" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="MusicalRole">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="musicalID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="grade" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Musical" Relationship="BayviewMusical.FK_MusicalRole_Musical" FromRole="MusicalRole" ToRole="Musical" />
+          <NavigationProperty Name="StudentRoles" Relationship="BayviewMusical.FK_StudentRole_MusicalRole" FromRole="MusicalRole" ToRole="StudentRole" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="studentID" />
+          </Key>
+          <Property Name="studentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="musicalID" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="grade" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Musical" Relationship="BayviewMusical.FK_Student_Musical" FromRole="Student" ToRole="Musical" />
+          <NavigationProperty Name="StudentCode" Relationship="BayviewMusical.FK_Student_StudentCode" FromRole="Student" ToRole="StudentCode" />
+          <NavigationProperty Name="StudentRoles" Relationship="BayviewMusical.FK_StudentRole_Student" FromRole="Student" ToRole="StudentRole" />
+          <NavigationProperty Name="StudentTimes" Relationship="BayviewMusical.FK_StudentTime_Student" FromRole="Student" ToRole="StudentTime" />
+        </EntityType>
+        <EntityType Name="StudentCode">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Students" Relationship="BayviewMusical.FK_Student_StudentCode" FromRole="StudentCode" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentRole">
+          <Key>
+            <PropertyRef Name="studentRoleID" />
+          </Key>
+          <Property Name="studentRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MusicalRole" Relationship="BayviewMusical.FK_StudentRole_MusicalRole" FromRole="StudentRole" ToRole="MusicalRole" />
+          <Property Type="Int32" Name="studentID" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="BayviewMusical.FK_StudentRole_Student" FromRole="StudentRole" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentTime">
+          <Key>
+            <PropertyRef Name="studentTimeID" />
+          </Key>
+          <Property Name="studentTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentID" Type="Int32" Nullable="false" />
+          <Property Name="timeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AuditionTime" Relationship="BayviewMusical.FK_StudentTime_AuditionTime" FromRole="StudentTime" ToRole="AuditionTime" />
+          <NavigationProperty Name="Student" Relationship="BayviewMusical.FK_StudentTime_Student" FromRole="StudentTime" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_AuditionDate_Musical">
+          <End Role="Musical" Type="BayviewMusical.Musical" Multiplicity="1" />
+          <End Role="AuditionDate" Type="BayviewMusical.AuditionDate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="AuditionDate">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditionTime_AuditionDate">
+          <End Role="AuditionDate" Type="BayviewMusical.AuditionDate" Multiplicity="1" />
+          <End Role="AuditionTime" Type="BayviewMusical.AuditionTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuditionDate">
+              <PropertyRef Name="dateID" />
+            </Principal>
+            <Dependent Role="AuditionTime">
+              <PropertyRef Name="dateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTime_AuditionTime">
+          <End Role="AuditionTime" Type="BayviewMusical.AuditionTime" Multiplicity="1" />
+          <End Role="StudentTime" Type="BayviewMusical.StudentTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuditionTime">
+              <PropertyRef Name="timeID" />
+            </Principal>
+            <Dependent Role="StudentTime">
+              <PropertyRef Name="timeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MusicalRole_Musical">
+          <End Role="Musical" Type="BayviewMusical.Musical" Multiplicity="1" />
+          <End Role="MusicalRole" Type="BayviewMusical.MusicalRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="MusicalRole">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Musical">
+          <End Role="Musical" Type="BayviewMusical.Musical" Multiplicity="1" />
+          <End Role="Student" Type="BayviewMusical.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musical">
+              <PropertyRef Name="musicalID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="musicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRole_MusicalRole">
+          <End Role="MusicalRole" Type="BayviewMusical.MusicalRole" Multiplicity="1" />
+          <End Role="StudentRole" Type="BayviewMusical.StudentRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicalRole">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="StudentRole">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_StudentCode">
+          <End Role="StudentCode" Type="BayviewMusical.StudentCode" Multiplicity="1" />
+          <End Role="Student" Type="BayviewMusical.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentCode">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRole_Student">
+          <End Type="BayviewMusical.Student" Role="Student" Multiplicity="1" />
+          <End Type="BayviewMusical.StudentRole" Role="StudentRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="studentID" />
+            </Principal>
+            <Dependent Role="StudentRole">
+              <PropertyRef Name="studentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Type="Int32" Name="AccountID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_StudentTime_Student">
+          <End Type="BayviewMusical.Student" Role="Student" Multiplicity="1" />
+          <End Type="BayviewMusical.StudentTime" Role="StudentTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="studentID" />
+            </Principal>
+            <Dependent Role="StudentTime">
+              <PropertyRef Name="studentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BAYVIEW_STUDENTModelStoreContainer" CdmEntityContainer="BayviewMusicalContext">
+          <EntitySetMapping Name="AuditionDates"><EntityTypeMapping TypeName="BayviewMusical.AuditionDate"><MappingFragment StoreEntitySet="AuditionDate">
+            <ScalarProperty Name="dateID" ColumnName="dateID" />
+            <ScalarProperty Name="musicalID" ColumnName="musicalID" />
+            <ScalarProperty Name="date" ColumnName="date" />
+            </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuditionTimes"><EntityTypeMapping TypeName="BayviewMusical.AuditionTime"><MappingFragment StoreEntitySet="AuditionTime">
+            <ScalarProperty Name="signupEndDate" ColumnName="signupEndDate" />
+                <ScalarProperty Name="signupStartDate" ColumnName="signupStartDate" />
+                <ScalarProperty Name="timeID" ColumnName="timeID" />
+            <ScalarProperty Name="dateID" ColumnName="dateID" />
+            <ScalarProperty Name="timeDescription" ColumnName="timeDescription" />
+            <ScalarProperty Name="availableSlots" ColumnName="availableSlots" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Musicals"><EntityTypeMapping TypeName="BayviewMusical.Musical"><MappingFragment StoreEntitySet="Musical">
+            <ScalarProperty Name="musicalID" ColumnName="musicalID" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="signupStartDate" ColumnName="signupStartDate" />
+            <ScalarProperty Name="signupEndDate" ColumnName="signupEndDate" />
+            <ScalarProperty Name="expiredMessage" ColumnName="expiredMessage" />
+            <ScalarProperty Name="confirmationMessage" ColumnName="confirmationMessage" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MusicalRoles"><EntityTypeMapping TypeName="BayviewMusical.MusicalRole"><MappingFragment StoreEntitySet="MusicalRole">
+            <ScalarProperty Name="roleID" ColumnName="roleID" />
+            <ScalarProperty Name="musicalID" ColumnName="musicalID" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="gender" ColumnName="gender" />
+            <ScalarProperty Name="grade" ColumnName="grade" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Students"><EntityTypeMapping TypeName="BayviewMusical.Student"><MappingFragment StoreEntitySet="Student">
+            <ScalarProperty Name="studentID" ColumnName="studentID" />
+            <ScalarProperty Name="code" ColumnName="code" />
+            <ScalarProperty Name="musicalID" ColumnName="musicalID" />
+            <ScalarProperty Name="firstName" ColumnName="firstName" />
+            <ScalarProperty Name="lastName" ColumnName="lastName" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="gender" ColumnName="gender" />
+            <ScalarProperty Name="grade" ColumnName="grade" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StudentCodes"><EntityTypeMapping TypeName="BayviewMusical.StudentCode"><MappingFragment StoreEntitySet="StudentCode">
+            <ScalarProperty Name="Code" ColumnName="Code" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StudentRoles"><EntityTypeMapping TypeName="BayviewMusical.StudentRole"><MappingFragment StoreEntitySet="StudentRole">
+            <ScalarProperty Name="studentID" ColumnName="studentID" />
+                <ScalarProperty Name="studentRoleID" ColumnName="studentRoleID" />
+            <ScalarProperty Name="roleID" ColumnName="roleID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StudentTimes"><EntityTypeMapping TypeName="BayviewMusical.StudentTime"><MappingFragment StoreEntitySet="StudentTime">
+            <ScalarProperty Name="studentTimeID" ColumnName="studentTimeID" />
+            <ScalarProperty Name="studentID" ColumnName="studentID" />
+            <ScalarProperty Name="timeID" ColumnName="timeID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="BayviewMusical.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BayviewMusicalModel">
+        <EntityTypeShape EntityType="BayviewMusical.AuditionDate" Width="1.5" PointX="3" PointY="4.625" Height="1.7566536458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.AuditionTime" Width="1.5" PointX="5.25" PointY="4.625" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.Musical" Width="1.5" PointX="0.75" PointY="5.875" Height="2.4140429687499987" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.MusicalRole" Width="1.5" PointX="3" PointY="7.375" Height="2.0853483072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.Student" Width="1.5" PointX="3" PointY="0.75" Height="2.5783902994791656" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.StudentCode" Width="1.5" PointX="0.75" PointY="3" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.StudentRole" Width="1.5" PointX="5.25" PointY="7.75" Height="1.4279589843749987" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayviewMusical.StudentTime" Width="1.5" PointX="7.5" PointY="4.875" Height="1.5923063151041674" IsExpanded="true" />
+        <AssociationConnector Association="BayviewMusical.FK_AuditionDate_Musical" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.1283268229166659" />
+          <ConnectorPoint PointX="3" PointY="6.1283268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_AuditionTime_AuditionDate" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5033268229166659" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.503326822916665" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.5033268229166659" />
+          <ConnectorPoint PointX="5.25" PointY="5.5033268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_StudentTime_AuditionTime" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.7533268229166659" />
+          <ConnectorPoint PointX="7.5" PointY="5.7533268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_MusicalRole_Musical" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.832021484375" />
+          <ConnectorPoint PointX="3" PointY="7.832021484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_Student_Musical" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.875" />
+          <ConnectorPoint PointX="2.625" PointY="5.5" />
+          <ConnectorPoint PointX="2.625" PointY="1.9981849075520834" />
+          <ConnectorPoint PointX="3" PointY="1.9981849075520834" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_StudentRole_MusicalRole" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.6051741536458337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="8.6051741536458337" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="8.6051741536458337" />
+          <ConnectorPoint PointX="5.25" PointY="8.6051741536458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_Student_StudentCode" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.32854248046875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="3.3285424804687493" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="3.32854248046875" />
+          <ConnectorPoint PointX="3" PointY="3.32854248046875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BayviewMusical.FK_StudentRole_Student" >
+          <ConnectorPoint PointX="4.5" PointY="3.6570849609375" />
+          <ConnectorPoint PointX="4.875" PointY="4.0320849609375" />
+          <ConnectorPoint PointX="4.875" PointY="9.0871658997395848" />
+          <ConnectorPoint PointX="5.25" PointY="9.0871658997395848" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BayviewMusical.Account" Width="1.5" PointX="5.375" PointY="0.75" Height="1.4279589843749996" />
+        <AssociationConnector Association="BayviewMusical.FK_StudentTime_Student" >
+          <ConnectorPoint PointX="4.5" PointY="2.9175194726562497" />
+          <ConnectorPoint PointX="8.25" PointY="2.9175194726562497" />
+          <ConnectorPoint PointX="8.25" PointY="4.875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
