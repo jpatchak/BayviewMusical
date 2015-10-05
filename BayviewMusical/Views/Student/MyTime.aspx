@@ -60,6 +60,8 @@
 				    </div>
 				    <div id="collapse<%=md.DateID %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=md.DateID %>">
 				      <div class="panel-body">
+                        <%if (md.TimeSlots.Select(t=>t).Where(t=>t.Status!="Inactive").Count()==0)
+                          { %><p>There are no active times available. Please check back later.</p><%} %>
 				        <table class="table table-striped">
                             <%foreach (BayviewMusical.Models.TimeSlot ts in md.TimeSlots)
                               { %>
@@ -68,7 +70,7 @@
                                   <tr style="<%=ts.Message.Contains("Full")?"font-style:italic;":"" %>">
 				          		    <td><%=ts.Name%></td>
 				          		    <td><%=ts.Message%></td>
-				          		    <td><%if (ts.Status == "Available")
+				          		    <td><%if (ts.Status == "Active")
                                           { %><button class="btn btn-xs btn-default btn-signup" data-id="<%=ts.ID %>">Sign Up</button><%} %>
                                         <%if (ts.Status == "Mine")
                                           { %><i>My Slot</i><%} %>

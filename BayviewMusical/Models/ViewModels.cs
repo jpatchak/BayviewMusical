@@ -156,12 +156,11 @@ namespace BayviewMusical.Models
                 else
                 {
                     ts.Message = (at.availableSlots - signedUpCount).ToString() + " of " + at.availableSlots.ToString() + " Remaining";
-                    ts.Status = "Available";
+                    ts.Status = "Active";
                 }
 
                 if (DateTime.Today.Date < at.signupStartDate || DateTime.Today.Date > at.signupEndDate)
                 {
-                    ts.Message = "Inactive";
                     ts.Status = "Inactive";
                 }
 

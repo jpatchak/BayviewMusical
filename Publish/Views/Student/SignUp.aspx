@@ -56,5 +56,10 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>		
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#code").focus();
+            });
+        </script>
 	</body>
 </html>
