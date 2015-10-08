@@ -193,6 +193,7 @@ namespace BayviewMusical
             {
                 if (this.studentID == 0)
                 {
+                    this.code = this.code.ToUpper();
                     db.Students.AddObject(this);
                 }
                 else
@@ -200,6 +201,7 @@ namespace BayviewMusical
                     Student stu = db.Students.SingleOrDefault(s => s.studentID == this.studentID);
                     if (stu != null)
                     {
+                        stu.code = this.code.ToUpper();
                         stu.firstName = this.firstName;
                         stu.lastName = this.lastName;
                         stu.email = this.email;

@@ -1,47 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="C:\PersonalVSProjects\BayviewMusical\Publish" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="Views/Student/Confirmation.aspx" publishTime="10/02/2015 17:33:38" />
-    <file relUrl="Views/Admin/Login.aspx" publishTime="10/04/2015 18:59:54" />
+    <file relUrl="Views/Student/Confirmation.aspx" publishTime="10/07/2015 20:24:22" />
+    <file relUrl="Views/Admin/Login.aspx" publishTime="10/07/2015 19:42:12" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="09/29/2015 22:42:06" />
     <file relUrl="Global.asax" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="09/29/2015 22:42:06" />
     <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="bin/System.Web.Mvc.xml" publishTime="02/17/2010 08:22:24" />
+    <file relUrl="Views/Admin/EditStudent.aspx" publishTime="10/07/2015 20:50:22" />
     <file relUrl="Scripts/jquery-1.4.1.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Admin/EditAuditionTime.aspx" publishTime="10/05/2015 17:54:00" />
+    <file relUrl="Views/Admin/EditAuditionTime.aspx" publishTime="10/07/2015 20:58:09" />
     <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="09/29/2015 22:42:06" />
     <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="09/29/2015 22:42:06" />
     <file relUrl="bin/System.Web.Abstractions.dll" publishTime="03/18/2010 20:31:26" />
-    <file relUrl="bin/BayviewMusical.pdb" publishTime="10/05/2015 18:08:42" />
-    <file relUrl="Views/Admin/EditStudent.aspx" publishTime="10/05/2015 17:55:08" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="09/29/2015 22:42:06" />
     <file relUrl="Scripts/jquery.validate.min.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Admin/StudentSearch.ascx" publishTime="10/04/2015 13:27:09" />
-    <file relUrl="Views/Admin/Roles.aspx" publishTime="10/04/2015 14:39:03" />
-    <file relUrl="Scripts/jquery.validate.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Admin/Home.aspx" publishTime="10/05/2015 17:55:34" />
-    <file relUrl="bin/System.Web.Routing.dll" publishTime="03/18/2010 20:31:26" />
-    <file relUrl="Views/Admin/AuditionDates.aspx" publishTime="10/04/2015 14:10:30" />
-    <file relUrl="Views/Admin/Students.aspx" publishTime="10/04/2015 12:37:21" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="09/29/2015 22:42:06" />
+    <file relUrl="Views/Admin/StudentSearch.ascx" publishTime="10/07/2015 21:11:56" />
     <file relUrl="bin/System.Web.Mvc.dll" publishTime="02/17/2010 08:24:14" />
+    <file relUrl="Views/Admin/Roles.aspx" publishTime="10/07/2015 20:32:54" />
+    <file relUrl="Scripts/jquery.validate.js" publishTime="09/29/2015 22:42:06" />
+    <file relUrl="Views/Admin/Home.aspx" publishTime="10/07/2015 20:28:38" />
+    <file relUrl="bin/System.Web.Mvc.xml" publishTime="02/17/2010 08:22:24" />
+    <file relUrl="Views/Admin/AuditionDates.aspx" publishTime="10/07/2015 20:31:14" />
+    <file relUrl="Views/Admin/Students.aspx" publishTime="10/07/2015 20:36:24" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="09/29/2015 22:42:06" />
+    <file relUrl="Views/Admin/MyAccount.aspx" publishTime="10/07/2015 20:41:02" />
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Student/SignUp.aspx" publishTime="10/05/2015 17:53:05" />
-    <file relUrl="Views/Admin/MyAccount.aspx" publishTime="10/05/2015 17:56:01" />
-    <file relUrl="Views/Admin/EditMusicalRole.aspx" publishTime="10/05/2015 17:54:24" />
+    <file relUrl="Views/Student/SignUp.aspx" publishTime="10/07/2015 19:52:20" />
+    <file relUrl="Scripts/ModalDialog.js" publishTime="10/03/2015 16:23:26" />
+    <file relUrl="bin/System.Web.Routing.dll" publishTime="03/18/2010 20:31:26" />
+    <file relUrl="Views/Admin/EditMusicalRole.aspx" publishTime="10/07/2015 21:00:33" />
     <file relUrl="Views/Admin/_TopNavigation.ascx" publishTime="10/04/2015 18:45:15" />
-    <file relUrl="Views/Student/MyTime.aspx" publishTime="10/05/2015 18:13:30" />
-    <file relUrl="bin/BayviewMusical.dll" publishTime="10/05/2015 18:08:42" />
-    <file relUrl="Views/Student/_DesiredRoles.ascx" publishTime="10/01/2015 19:57:14" />
+    <file relUrl="Views/Student/MyTime.aspx" publishTime="10/07/2015 20:22:09" />
+    <file relUrl="bin/BayviewMusical.dll" publishTime="10/07/2015 21:04:31" />
+    <file relUrl="Views/Student/_DesiredRoles.ascx" publishTime="10/07/2015 20:18:51" />
     <file relUrl="Scripts/bootstrap-sortable.js" publishTime="10/03/2015 09:58:18" />
     <file relUrl="Web.config" publishTime="10/04/2015 19:25:00" />
     <file relUrl="Content/Site.css" publishTime="09/29/2015 22:42:05" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Web.config" publishTime="09/29/2015 22:42:06" />
-    <file relUrl="Views/Student/MyInfo.aspx" publishTime="10/05/2015 17:52:31" />
+    <file relUrl="bin/BayviewMusical.pdb" publishTime="10/07/2015 21:04:31" />
+    <file relUrl="Views/Student/MyInfo.aspx" publishTime="10/07/2015 20:17:49" />
     <file relUrl="Content/bootstrap-sortable.css" publishTime="10/03/2015 09:57:21" />
-    <file relUrl="Scripts/ModalDialog.js" publishTime="10/03/2015 16:23:26" />
-    <file relUrl="Views/Admin/EditAuditionDate.aspx" publishTime="10/05/2015 17:53:41" />
+    <file relUrl="Views/Web.config" publishTime="09/29/2015 22:42:06" />
+    <file relUrl="Views/Admin/EditAuditionDate.aspx" publishTime="10/07/2015 20:54:43" />
     <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="09/29/2015 22:42:06" />
   </publishProfile>
 </publishData>

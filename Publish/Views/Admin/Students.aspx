@@ -14,90 +14,92 @@
         <!-- main content div -->
     <div class="container-fluid">
         <%=Html.HiddenFor(m=>m.MusicalID) %>
-      <div class="col-lg-3">
-      </div>
-      <div class="col-lg-6">
+      <div class="col-md-6 col-md-offset-3">
           <h4>Student Search</h4>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="inputFirstName">First Name</label>
-              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
-            </div>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="inputCode">Secret Code</label>
+                  <input type="text" class="form-control" id="inputCode" placeholder="Secret Code">
+                </div>
+              </div>  
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="inputLastName">Last Name</label>
-              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="inputCode">Secret Code</label>
-              <input type="text" class="form-control" id="inputCode" placeholder="Secret Code">
-            </div>
-          </div>          
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="select-gender">Gender</label>
-              <select class="form-control" value="A" id="select-gender">
-                <option value="A">All</option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-              </select>
-            </div>
-          </div>       
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="select-grade">Grade</label>
-              <select class="form-control" value="A" id="select-grade">
-                <option value="A">All</option>
-                <option value="7">7th</option>
-                <option value="8">8th</option>
-              </select>
-            </div>
-          </div>               
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="select-role">Role</label>
-              <select class="form-control" value="A" id="select-role">
-                <option value="0">All</option>
-                <%foreach (BayviewMusical.MusicalRole mr in BayviewMusical.MusicalRole.AllRoles(Model.MusicalID))
-                  { %>
-                <option value="<%=mr.roleID %>"><%=mr.name %></option>
-                <%} %>
-              </select>
-            </div>
-          </div> 
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="select-date">Audition Date</label>
-              <select class="form-control" id="select-date">
-                <option value="0">All</option>
-                <%foreach (BayviewMusical.Models.MusicalDate md in BayviewMusical.Models.MusicalDate.AllDates(Model.MusicalID))
-                  { %>
-                <option value="<%=md.DateID %>"><%=md.DateDisplay %></option>
-                <%} %>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="select-gender">Gender</label>
+                  <select class="form-control" value="A" id="select-gender">
+                    <option value="A">All</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
+                </div>
+              </div>       
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="select-grade">Grade</label>
+                  <select class="form-control" value="A" id="select-grade">
+                    <option value="A">All</option>
+                    <option value="7">7th</option>
+                    <option value="8">8th</option>
+                  </select>
+                </div>
+              </div>               
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="select-role">Role</label>
+                  <select class="form-control" value="A" id="select-role">
+                    <option value="0">All</option>
+                    <%foreach (BayviewMusical.MusicalRole mr in BayviewMusical.MusicalRole.AllRoles(Model.MusicalID))
+                      { %>
+                    <option value="<%=mr.roleID %>"><%=mr.name %></option>
+                    <%} %>
+                  </select>
+                </div>
+              </div> 
+          </div>        
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="select-date">Audition Date</label>
+                  <select class="form-control" id="select-date">
+                    <option value="0">All</option>
+                    <%foreach (BayviewMusical.Models.MusicalDate md in BayviewMusical.Models.MusicalDate.AllDates(Model.MusicalID))
+                      { %>
+                    <option value="<%=md.DateID %>"><%=md.DateDisplay %></option>
+                    <%} %>
                 
-              </select>
-            </div>
-          </div>     
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="select-date">Audition Date</label>
-              <select class="form-control" id="select-time">
-                <option value="0">All</option>
-              </select>
-            </div>
-          </div>      
+                  </select>
+                </div>
+              </div>     
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="select-date">Audition Date</label>
+                  <select class="form-control" id="select-time">
+                    <option value="0">All</option>
+                  </select>
+                </div>
+              </div>      
+          </div>
           <div class="text-center col-lg-12">
             <a class="btn btn-primary" id="search-button">Search</a>
             <a class="btn btn-default" id="clear-button">Clear</a>
           </div>                       
       </div>
-      <div class="col-lg-3">
 
-      </div>  
-      <div class="col-lg-12" id="search-results">
+      <div class="row" id="search-results">
         
       </div>    
     </div>

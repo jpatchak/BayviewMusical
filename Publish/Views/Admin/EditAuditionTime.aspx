@@ -15,44 +15,46 @@
         <!--top nav-->
         <% Html.RenderAction("TopNavigation", "Admin", new { musicalID = Model.MusicalID }); %>
         <div class="container-fluid">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-6">
+        <div class="col-md-6 col-md-offset-3">
         	<form action="<%=Url.Action("SaveAuditionTime", "Admin") %>" method="post">
-			    <div class="col-md-12">
-                    <%=Html.HiddenFor(m=>m.MusicalID) %>
-                    <%=Html.HiddenFor(m=>m.DateID) %>
-                    <%=Html.HiddenFor(m=>m.TimeID) %>
-				    <div class="form-group">
-                    <%= Html.LabelFor(m=>m.TimeDescription) %>
-				    <%= Html.TextBoxFor(m => m.TimeDescription, new { Class = "form-control", PlaceHolder = "Time Slot Description" })%>
-				    </div>
-			    </div>
-			    <div class="col-md-4">
-				    <div class="form-group">
-                    <%= Html.LabelFor(m=>m.SignUpStartDate) %>
-				    <%= Html.TextBoxFor(m => m.SignUpStartDate, new { Class = "form-control", PlaceHolder = "Signup Begins ('MM/DD/YYYY')" })%>
-				    </div>
-			    </div>
-                <div class="col-md-4">
-				    <div class="form-group">
-                    <%= Html.LabelFor(m=>m.SignUpEndDate) %>
-				    <%= Html.TextBoxFor(m => m.SignUpEndDate, new { Class = "form-control", PlaceHolder = "Signup Ends ('MM/DD/YYYY')" })%>
-				    </div>
-			    </div>
-			    <div class="col-md-4">
-				    <div class="form-group">
-                    <%= Html.LabelFor(m=>m.Capacity) %>
-				    <%= Html.TextBoxFor(m => m.Capacity, new { Class = "form-control", PlaceHolder = "Max Capacity" })%>
-				    </div>
-			    </div>
-				<div class="text-center col-lg-12">
+			    <div class="row">
+                    <div class="col-md-12">
+                        <%=Html.HiddenFor(m=>m.MusicalID) %>
+                        <%=Html.HiddenFor(m=>m.DateID) %>
+                        <%=Html.HiddenFor(m=>m.TimeID) %>
+				        <div class="form-group">
+                        <%= Html.LabelFor(m=>m.TimeDescription) %>
+				        <%= Html.TextBoxFor(m => m.TimeDescription, new { Class = "form-control", PlaceHolder = "Time Slot Description" })%>
+				        </div>
+			        </div>
+                </div>
+                <div class="row">
+			        <div class="col-md-4">
+				        <div class="form-group">
+                        <%= Html.LabelFor(m=>m.SignUpStartDate) %>
+				        <%= Html.TextBoxFor(m => m.SignUpStartDate, new { Class = "form-control", PlaceHolder = "Signup Begins ('MM/DD/YYYY')" })%>
+				        </div>
+			        </div>
+                    <div class="col-md-4">
+				        <div class="form-group">
+                        <%= Html.LabelFor(m=>m.SignUpEndDate) %>
+				        <%= Html.TextBoxFor(m => m.SignUpEndDate, new { Class = "form-control", PlaceHolder = "Signup Ends ('MM/DD/YYYY')" })%>
+				        </div>
+			        </div>
+			        <div class="col-md-4">
+				        <div class="form-group">
+                        <%= Html.LabelFor(m=>m.Capacity) %>
+				        <%= Html.TextBoxFor(m => m.Capacity, new { Class = "form-control", PlaceHolder = "Max Capacity" })%>
+				        </div>
+			        </div>
+                </div>
+				<div class="text-center row">
 				<button type="submit" class="btn btn-default">Submit</button>
 				</div>
 			</form>
             <%if (!Html.ViewData.ModelState.IsValid)
                 { %>
-                <div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
+                <div class="row"><div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div></div>
                 <%} %>
         </div>
         <div class="col-lg-3">

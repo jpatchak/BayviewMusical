@@ -28,9 +28,8 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="container-fluid">
-			<div class="col-lg-3">
-			</div>
-			<div class="col-lg-6">
+        
+			<div class="col-md-6 col-md-offset-3">
 				<ol class="breadcrumb">
 					<li class="active">1. My Code</li>
 					<li class="disabled">2. My Details</li>
@@ -42,7 +41,7 @@
                     <%= Html.LabelFor(m=>m.code) %>
 				    <%= Html.TextBoxFor(m=>m.code, new{Class="form-control", PlaceHolder="My Code"}) %>
 				  </div>
-				  <div class="text-center">
+				  <div class="text-center row">
 				  	<button type="submit" class="btn btn-default">Submit</button>
 				  </div>
                   <%if (!Html.ViewData.ModelState.IsValid)
@@ -50,8 +49,6 @@
                     <div class="alert alert-danger" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
                     <%} %>
 				</form>
-			</div>
-			<div class="col-lg-3">
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>

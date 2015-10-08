@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<BayviewMusical.Models.AdminStudentSearchViewModel>" %>
+<div class="col-md-12">
 <p><%=Model.SearchResults.Count %> Search Results</p>
+</div>
 <table class="table table-striped sortable">
     <thead>
         <tr>

@@ -16,38 +16,39 @@
         <!--top nav-->
         <% Html.RenderAction("TopNavigation", "Admin", new { musicalID = Model.MusicalID }); %>
         <div class="container-fluid">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-6">
+        <div class="col-md-6 col-md-offset-3">
         	<form action="<%=Url.Action("SaveMusicalRole", "Admin") %>" method="post">
-			    <div class="col-md-12">
-                    <%=Html.HiddenFor(m=>m.MusicalID) %>
-                    <%=Html.HiddenFor(m=>m.RoleID) %>
-				    <div class="form-group">
-                    <%= Html.LabelFor(m=>m.RoleName) %>
-				    <%= Html.TextBoxFor(m => m.RoleName, new { Class = "form-control", PlaceHolder = "Role Name" })%>
-				    </div>
-			    </div>
-                <div class="col-md-6">
-				    <div class="form-group">
-                        <%= Html.LabelFor(m=>m.Gender) %>
-				        <%= Html.DropDownListFor(m => m.Gender, Model.GenderList , new { Class = "form-control" })%>
-				    </div>
-			    </div>
-                <div class="col-md-6">
-				    <div class="form-group">
-                        <%= Html.LabelFor(m=>m.Grade) %>
-				        <%= Html.DropDownListFor(m => m.Grade, Model.GradeList , new { Class = "form-control" })%>
-				    </div>
-			    </div>
-
-				<div class="text-center col-lg-12">
+                <div class="row">
+			        <div class="col-md-12">
+                        <%=Html.HiddenFor(m=>m.MusicalID) %>
+                        <%=Html.HiddenFor(m=>m.RoleID) %>
+				        <div class="form-group">
+                        <%= Html.LabelFor(m=>m.RoleName) %>
+				        <%= Html.TextBoxFor(m => m.RoleName, new { Class = "form-control", PlaceHolder = "Role Name" })%>
+				        </div>
+			        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+				        <div class="form-group">
+                            <%= Html.LabelFor(m=>m.Gender) %>
+				            <%= Html.DropDownListFor(m => m.Gender, Model.GenderList , new { Class = "form-control" })%>
+				        </div>
+			        </div>
+                    <div class="col-md-6">
+				        <div class="form-group">
+                            <%= Html.LabelFor(m=>m.Grade) %>
+				            <%= Html.DropDownListFor(m => m.Grade, Model.GradeList , new { Class = "form-control" })%>
+				        </div>
+			        </div>
+                </div>
+				<div class="text-center row">
 				<button type="submit" class="btn btn-default">Submit</button>
 				</div>
 			</form>
             <%if (!Html.ViewData.ModelState.IsValid)
                 { %>
-                <div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
+                <div class="row"><div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div></div>
                 <%} %>
         </div>
         <div class="col-lg-3">

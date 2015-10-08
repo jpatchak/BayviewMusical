@@ -29,9 +29,7 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="container-fluid">
-			<div class="col-lg-3">
-			</div>
-			<div class="col-lg-6">
+			<div class="col-md-6 col-md-offset-3">
 				<ol class="breadcrumb">
 					<li class="disabled">1. My Code</li>
 					<li><a href="/MyInfo?code=<%=Model.Code %>">2. My Details</a></li>
@@ -87,14 +85,13 @@
                     { %>
                     <div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
                     <%} %>
-			</div>
+			    </div>
 
             <form id="hidden-form" action="<%=Url.Action("SubmitMyTime", "Student") %>" method="post" style="display:none;">
                 <%=Html.TextBoxFor(m=>m.Code) %>
                 <input id="timeID" name="timeID" />
             </form>
-			<div class="col-lg-3">
-			</div>
+            </div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>	

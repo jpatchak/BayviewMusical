@@ -16,9 +16,7 @@
         <!--top nav-->
         <% Html.RenderAction("TopNavigation", "Admin", new { musicalID = Model.MusicalID }); %>
         <div class="container-fluid">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-lg-offset-3">
         	<h4>Dates and Times</h4>
 			<%if(Model.MusicalDates.Count>0){ %><p>Click on a date below to edit or delete times.</p><%} %>
             <a class="btn btn-default" style="margin-bottom:5px;" href="/Admin/EditAuditionDate?musicalID=<%=Model.MusicalID %>&dateID=0">New Audition Date</a>
@@ -63,10 +61,6 @@
 				</div>
                 <%} %>
             </div>
-        </div>
-
-        
-        <div class="col-lg-3">
         </div>
         </div>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>

@@ -28,34 +28,31 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="container-fluid">
-			<div class="col-lg-3">
-			</div>
-			<div class="col-lg-6">
+            
+			<div class="col-md-4 col-md-offset-4">
 				<form action="<%=Url.Action("DoLogin", "Admin") %>" method="post">
-				  <div class="col-md-12">
+				  <div class="row">
 					  <div class="form-group">
                         <%=Html.LabelFor(m=>m.UserName) %>
                         <%=Html.TextBoxFor(m => m.UserName, new { Class = "form-control", PlaceHolder = "Username" })%>
                       </div>
                   </div>
-				  <div class="col-md-12">
+				  <div class="row">
 					  <div class="form-group">
                         <%=Html.LabelFor(m=>m.Password) %>
                         <%=Html.TextBoxFor(m => m.Password, new { type = "password", Class="form-control", PlaceHolder="Password" })%>
                       </div>
                   </div>
-				  <div class="text-center col-lg-12">
+				  <div class="text-center row">
 				  	<button type="submit" class="btn btn-default">Submit</button>
 				  </div>
                 </form>
                     <%if (!Html.ViewData.ModelState.IsValid)
                     { %>
-                    <div class="alert alert-danger col-xs-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
+                    <div class="alert alert-danger col-md-12" role="alert" style="margin-top: 10px;"><span class="glyphicon glyphicon-alert"></span><strong> Errors</strong><%= Html.ValidationSummary()%></div>
                     <%} %>
 			</div>
             
-			<div class="col-lg-3">
-			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>	
